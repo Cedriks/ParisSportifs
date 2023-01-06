@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9207A081296868F900F71939 /* LeaguePage-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9207A080296868F900F71939 /* LeaguePage-ViewModel.swift */; };
 		9211E2172968526E00BDC50F /* FDJParisSportifsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2162968526E00BDC50F /* FDJParisSportifsApp.swift */; };
 		9211E2192968526E00BDC50F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2182968526E00BDC50F /* ContentView.swift */; };
 		9211E21B2968527000BDC50F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9211E21A2968527000BDC50F /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 		9211E2352968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2342968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift */; };
 		92A6A063296852F400866BDA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A062296852F300866BDA /* Result.swift */; };
 		92A6A0662968577900866BDA /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A0652968577900866BDA /* ContentView-ViewModel.swift */; };
+		92A6A0682968599600866BDA /* LeaguePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A0672968599600866BDA /* LeaguePage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9207A080296868F900F71939 /* LeaguePage-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeaguePage-ViewModel.swift"; sourceTree = "<group>"; };
 		9211E2132968526E00BDC50F /* FDJParisSportifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FDJParisSportifs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9211E2162968526E00BDC50F /* FDJParisSportifsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDJParisSportifsApp.swift; sourceTree = "<group>"; };
 		9211E2182968526E00BDC50F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		9211E2342968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDJParisSportifsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		92A6A062296852F300866BDA /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		92A6A0652968577900866BDA /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		92A6A0672968599600866BDA /* LeaguePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguePage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,8 @@
 			children = (
 				9211E2182968526E00BDC50F /* ContentView.swift */,
 				92A6A0652968577900866BDA /* ContentView-ViewModel.swift */,
+				92A6A0672968599600866BDA /* LeaguePage.swift */,
+				9207A080296868F900F71939 /* LeaguePage-ViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,7 +281,9 @@
 			files = (
 				92A6A063296852F400866BDA /* Result.swift in Sources */,
 				92A6A0662968577900866BDA /* ContentView-ViewModel.swift in Sources */,
+				9207A081296868F900F71939 /* LeaguePage-ViewModel.swift in Sources */,
 				9211E2192968526E00BDC50F /* ContentView.swift in Sources */,
+				92A6A0682968599600866BDA /* LeaguePage.swift in Sources */,
 				9211E2172968526E00BDC50F /* FDJParisSportifsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

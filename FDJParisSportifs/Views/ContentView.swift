@@ -25,7 +25,7 @@ struct ContentView: View {
                 }
             case .loaded:
                 List(viewModel.searchResults, id: \.idLeague) { league in
-                    NavigationLink(destination: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Destination@*/Text("Destination")/*@END_MENU_TOKEN@*/) {
+                    NavigationLink(destination: LeaguePage(league: league)) {
                         Text(league.strLeague ?? "-")
                             .font(.headline)
                         + Text(": ")
@@ -40,7 +40,7 @@ struct ContentView: View {
                     Spacer()
                     Text("Please try later")
                     Spacer()
-                    Button("Unlock Places") {
+                    Button("Reload") {
                         viewModel.loadingState = .loading
                     }
                     .padding()
