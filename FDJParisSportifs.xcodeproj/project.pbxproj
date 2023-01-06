@@ -14,6 +14,7 @@
 		9211E2292968527000BDC50F /* FDJParisSportifsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2282968527000BDC50F /* FDJParisSportifsTests.swift */; };
 		9211E2332968527000BDC50F /* FDJParisSportifsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2322968527000BDC50F /* FDJParisSportifsUITests.swift */; };
 		9211E2352968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2342968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift */; };
+		92A6A063296852F400866BDA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A062296852F300866BDA /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		9211E22E2968527000BDC50F /* FDJParisSportifsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FDJParisSportifsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9211E2322968527000BDC50F /* FDJParisSportifsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDJParisSportifsUITests.swift; sourceTree = "<group>"; };
 		9211E2342968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDJParisSportifsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		92A6A062296852F300866BDA /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				9211E21A2968527000BDC50F /* Assets.xcassets */,
 				9211E21C2968527000BDC50F /* FDJParisSportifs.entitlements */,
 				9211E21D2968527000BDC50F /* Preview Content */,
+				92A6A062296852F300866BDA /* Result.swift */,
 			);
 			path = FDJParisSportifs;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92A6A063296852F400866BDA /* Result.swift in Sources */,
 				9211E2192968526E00BDC50F /* ContentView.swift in Sources */,
 				9211E2172968526E00BDC50F /* FDJParisSportifsApp.swift in Sources */,
 			);
