@@ -10,17 +10,21 @@ import SwiftUI
 
 extension LeaguePage {
     @MainActor class ViewModel: ObservableObject {
-        @Published var league: League? = nil
+        @Published private(set) var league: League? = nil
         @Published var loadingState = LoadingState.loading
         @Published private(set) var teams = [Team]()
         
         @Published var searchText = ""
         
+        func updateSelectedleague(league: League){
+            self.league = league
+        }
+        
         var searchResults: [Team] {
             if searchText.isEmpty {
                 return teams
             } else {
-                return teams.filter { $0.strTeam.contains(searchText) }
+                return teams.filter { $0.strTeam!.contains(searchText) }
             }
         }
         

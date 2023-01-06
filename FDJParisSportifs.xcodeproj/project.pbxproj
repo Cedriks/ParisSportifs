@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9207A081296868F900F71939 /* LeaguePage-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9207A080296868F900F71939 /* LeaguePage-ViewModel.swift */; };
+		9207A083296877FB00F71939 /* TeamDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9207A082296877FB00F71939 /* TeamDetailPage.swift */; };
+		9207A0852968786200F71939 /* TeamDetailPage-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9207A0842968786200F71939 /* TeamDetailPage-ViewModel.swift */; };
 		9211E2172968526E00BDC50F /* FDJParisSportifsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2162968526E00BDC50F /* FDJParisSportifsApp.swift */; };
 		9211E2192968526E00BDC50F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2182968526E00BDC50F /* ContentView.swift */; };
 		9211E21B2968527000BDC50F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9211E21A2968527000BDC50F /* Assets.xcassets */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		9207A080296868F900F71939 /* LeaguePage-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeaguePage-ViewModel.swift"; sourceTree = "<group>"; };
+		9207A082296877FB00F71939 /* TeamDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailPage.swift; sourceTree = "<group>"; };
+		9207A0842968786200F71939 /* TeamDetailPage-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamDetailPage-ViewModel.swift"; sourceTree = "<group>"; };
 		9211E2132968526E00BDC50F /* FDJParisSportifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FDJParisSportifs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9211E2162968526E00BDC50F /* FDJParisSportifsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDJParisSportifsApp.swift; sourceTree = "<group>"; };
 		9211E2182968526E00BDC50F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,7 +148,9 @@
 				9211E2182968526E00BDC50F /* ContentView.swift */,
 				92A6A0652968577900866BDA /* ContentView-ViewModel.swift */,
 				92A6A0672968599600866BDA /* LeaguePage.swift */,
+				9207A0842968786200F71939 /* TeamDetailPage-ViewModel.swift */,
 				9207A080296868F900F71939 /* LeaguePage-ViewModel.swift */,
+				9207A082296877FB00F71939 /* TeamDetailPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -280,8 +286,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				92A6A063296852F400866BDA /* Result.swift in Sources */,
+				9207A0852968786200F71939 /* TeamDetailPage-ViewModel.swift in Sources */,
 				92A6A0662968577900866BDA /* ContentView-ViewModel.swift in Sources */,
 				9207A081296868F900F71939 /* LeaguePage-ViewModel.swift in Sources */,
+				9207A083296877FB00F71939 /* TeamDetailPage.swift in Sources */,
 				9211E2192968526E00BDC50F /* ContentView.swift in Sources */,
 				92A6A0682968599600866BDA /* LeaguePage.swift in Sources */,
 				9211E2172968526E00BDC50F /* FDJParisSportifsApp.swift in Sources */,

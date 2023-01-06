@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    enum LoadingState {
-        case loading, loaded, failed
-    }
 
     @StateObject private var viewModel = ViewModel()
     

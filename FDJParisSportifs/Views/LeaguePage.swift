@@ -7,13 +7,12 @@
 
 import SwiftUI
 
-
 struct LeaguePage: View {
-    enum LoadingState {
-        case loading, loaded, failed
-    }
-    var league: League
+  
+    @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel = ViewModel()
+    var league: League
+
     
     var body: some View {
         switch viewModel.loadingState {
@@ -21,17 +20,17 @@ struct LeaguePage: View {
             VStack {
                 Text("Loading")
             }.task {
-                viewModel.league = league
+                viewModel.updateSelectedleague(league: league)
                 await viewModel.fetchAllLeagueTeams()
             }
         case .loaded:
             List(viewModel.searchResults, id: \.idTeam) { team in
                 // TODO: Navigation to Detail team page
-                NavigationLink(destination: LeaguePage(league: league)) {
-                    Text(team.strTeam)
+                NavigationLink(destination: TeamDetailPage(team: team)) {
+                    Text(team.strTeam!)
                         .font(.headline)
                     + Text(": ")
-                    + Text(team.strAlternate)
+                    + Text(team.strAlternate!)
                         .italic()
                 }
             }
@@ -39,16 +38,9 @@ struct LeaguePage: View {
             .navigationTitle(league.strLeague!)
         case .failed:
             VStack {
-                Spacer()
                 Text("Please try later")
-                Spacer()
-                Button("Reload") {
-                    viewModel.loadingState = .loading
-                }
-                .padding()
-                .background(.blue)
-                .foregroundColor(.white)
-                .clipShape(Capsule())
+            }.task {
+                dismiss()
             }
         }
     }
