@@ -11,22 +11,20 @@ struct ContentView: View {
     enum LoadingState {
         case loading, loaded, failed
     }
-    @State private var loadingState = LoadingState.loading
-    @State private var leagues = [League]()
-    
-    @State private var searchText = ""
+
+    @StateObject private var viewModel = ViewModel()
     
     var body: some View {
         NavigationView {
-            switch loadingState {
+            switch viewModel.loadingState {
             case .loading:
                 VStack {
                     Text("Loading")
                 }.task {
-                    await fetchAllLeagues()
+                    await viewModel.fetchAllLeagues()
                 }
             case .loaded:
-                List(searchResults, id: \.idLeague) { league in
+                List(viewModel.searchResults, id: \.idLeague) { league in
                     NavigationLink(destination: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Destination@*/Text("Destination")/*@END_MENU_TOKEN@*/) {
                         Text(league.strLeague ?? "-")
                             .font(.headline)
@@ -35,7 +33,7 @@ struct ContentView: View {
                             .italic()
                     }
                 }
-                .searchable(text: $searchText)
+                .searchable(text: $viewModel.searchText)
                 .navigationTitle("Paris Sportifs")
             case .failed:
                 VStack {
@@ -43,7 +41,7 @@ struct ContentView: View {
                     Text("Please try later")
                     Spacer()
                     Button("Unlock Places") {
-                        loadingState = .loading
+                        viewModel.loadingState = .loading
                     }
                     .padding()
                     .background(.blue)
@@ -51,32 +49,6 @@ struct ContentView: View {
                     .clipShape(Capsule())
                 }
             }
-        }
-    }
-    
-    var searchResults: [League] {
-        if searchText.isEmpty {
-            return leagues
-        } else {
-            return leagues.filter { $0.strLeague!.contains(searchText) }
-        }
-    }
-    
-    func fetchAllLeagues() async {
-        let urlString = "https://www.thesportsdb.com/api/v1/json/50130162/all_leagues.php"
-        
-        guard let url = URL(string: urlString) else {
-            print("Bad URL: \(urlString)")
-            return
-        }
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let items = try JSONDecoder().decode(Result.self, from: data)
-            leagues = items.leagues
-            loadingState = .loaded
-        } catch {
-            loadingState = .failed
         }
     }
 }

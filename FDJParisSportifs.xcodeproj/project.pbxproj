@@ -15,6 +15,7 @@
 		9211E2332968527000BDC50F /* FDJParisSportifsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2322968527000BDC50F /* FDJParisSportifsUITests.swift */; };
 		9211E2352968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2342968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift */; };
 		92A6A063296852F400866BDA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A062296852F300866BDA /* Result.swift */; };
+		92A6A0662968577900866BDA /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A0652968577900866BDA /* ContentView-ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		9211E2322968527000BDC50F /* FDJParisSportifsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDJParisSportifsUITests.swift; sourceTree = "<group>"; };
 		9211E2342968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDJParisSportifsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		92A6A062296852F300866BDA /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		92A6A0652968577900866BDA /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +99,8 @@
 		9211E2152968526E00BDC50F /* FDJParisSportifs */ = {
 			isa = PBXGroup;
 			children = (
+				92A6A0642968575500866BDA /* Views */,
 				9211E2162968526E00BDC50F /* FDJParisSportifsApp.swift */,
-				9211E2182968526E00BDC50F /* ContentView.swift */,
 				9211E21A2968527000BDC50F /* Assets.xcassets */,
 				9211E21C2968527000BDC50F /* FDJParisSportifs.entitlements */,
 				9211E21D2968527000BDC50F /* Preview Content */,
@@ -130,6 +132,15 @@
 				9211E2342968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift */,
 			);
 			path = FDJParisSportifsUITests;
+			sourceTree = "<group>";
+		};
+		92A6A0642968575500866BDA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9211E2182968526E00BDC50F /* ContentView.swift */,
+				92A6A0652968577900866BDA /* ContentView-ViewModel.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92A6A063296852F400866BDA /* Result.swift in Sources */,
+				92A6A0662968577900866BDA /* ContentView-ViewModel.swift in Sources */,
 				9211E2192968526E00BDC50F /* ContentView.swift in Sources */,
 				9211E2172968526E00BDC50F /* FDJParisSportifsApp.swift in Sources */,
 			);
