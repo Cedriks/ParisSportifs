@@ -26,7 +26,7 @@ struct League: Codable {
                                         strSport: "strSport",
                                         strLeagueAlternate: "strLeagueAlternate")
 }
-struct Team: Codable {
+struct Team: Codable, Comparable {
     let idTeam: String
     let idSoccerXML: String?
     let idAPIfootball: String?
@@ -93,6 +93,10 @@ struct Team: Codable {
     let strTeamBanner: String?
     let strYoutube: String?
     let strLocked: String?
+    
+    static func < (lhs: Team, rhs: Team) -> Bool {
+        lhs.strTeam! > rhs.strTeam!
+    }
     
     static var example: Team = Team(idTeam: "133702",
                                     idSoccerXML: "117",

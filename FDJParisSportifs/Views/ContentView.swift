@@ -16,6 +16,7 @@ struct ContentView: View {
             switch viewModel.loadingState {
             case .loading:
                 VStack {
+                    ProgressView()
                     Text("Loading")
                 }.task {
                     await viewModel.fetchAllLeagues()

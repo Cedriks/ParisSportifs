@@ -42,11 +42,24 @@ extension LeaguePage {
             do {
                 let (data, _) = try await URLSession.shared.data(from: url)
                 let items = try JSONDecoder().decode(Result.self, from: data)
-                teams = items.teams!
+                teams = items.teams!.sorted()
+                teams = self.removeOneOnTwo(teams)
                 loadingState = .loaded
             } catch {
                 loadingState = .failed
             }
+        }
+        
+        func removeOneOnTwo(_ teams: [Team]) -> [Team] {
+            var cleanedArr = [Team]()
+            
+            for i in 0 ..< teams.count {
+                if (i % 2 == 0 ) {
+                    cleanedArr.append(teams[i])
+                    print(i)
+                }
+            }
+            return cleanedArr
         }
     }
 }

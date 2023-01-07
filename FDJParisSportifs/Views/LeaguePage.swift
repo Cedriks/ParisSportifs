@@ -18,6 +18,7 @@ struct LeaguePage: View {
         switch viewModel.loadingState {
         case .loading:
             VStack {
+                ProgressView()
                 Text("Loading")
             }.task {
                 viewModel.updateSelectedleague(league: league)

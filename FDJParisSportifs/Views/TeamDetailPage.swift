@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TeamDetailPage: View {
-  
+    
     @Environment(\.dismiss) var dismiss
     
     var team: Team
@@ -18,13 +18,35 @@ struct TeamDetailPage: View {
         switch viewModel.loadingState {
         case .loading:
             VStack {
+                ProgressView()
                 Text("Loading")
             }.task {
                 viewModel.updateSelectedTeam(team: team)
                 await viewModel.fetchTeamInformations()
             }
         case .loaded:
-            Text(viewModel.team?.strTeam ?? "-")
+            VStack {
+                ScrollView([.vertical]) {
+                    AsyncImage(
+                        url: URL(string: team.strTeamBanner!),
+                        content:{ image in
+                            image.resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxWidth: UIScreen.main.bounds.width)
+                        },
+                        placeholder: {
+                            ProgressView()
+                        }
+                    )
+                    Text(team.strCountry ?? "-")
+                        .font(.title)
+                    Text(team.strLeague ?? "-")
+                        .font(.title2)
+                    Text(team.strDescriptionEN ?? "-")
+                        .multilineTextAlignment(.center)
+                        .padding(.all)
+                }
+            }
             .navigationTitle(team.strTeam!)
         case .failed:
             VStack {
