@@ -110,9 +110,9 @@
 		9211E2152968526E00BDC50F /* FDJParisSportifs */ = {
 			isa = PBXGroup;
 			children = (
-				9221A98729698EF0007442E6 /* Data */,
-				92A6A0642968575500866BDA /* Views */,
 				9211E2162968526E00BDC50F /* FDJParisSportifsApp.swift */,
+				92A6A0642968575500866BDA /* Views */,
+				9221A98729698EF0007442E6 /* Data */,
 				9211E21A2968527000BDC50F /* Assets.xcassets */,
 				9211E21C2968527000BDC50F /* FDJParisSportifs.entitlements */,
 				9211E21D2968527000BDC50F /* Preview Content */,
@@ -154,15 +154,39 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		92A6A0642968575500866BDA /* Views */ = {
+		9221A98C2969961D007442E6 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
 				9211E2182968526E00BDC50F /* ContentView.swift */,
 				92A6A0652968577900866BDA /* ContentView-ViewModel.swift */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		9221A98D2969962D007442E6 /* LeaguePage */ = {
+			isa = PBXGroup;
+			children = (
 				92A6A0672968599600866BDA /* LeaguePage.swift */,
-				9207A0842968786200F71939 /* TeamDetailPage-ViewModel.swift */,
 				9207A080296868F900F71939 /* LeaguePage-ViewModel.swift */,
+			);
+			path = LeaguePage;
+			sourceTree = "<group>";
+		};
+		9221A98E29699644007442E6 /* TeamDetailPage */ = {
+			isa = PBXGroup;
+			children = (
 				9207A082296877FB00F71939 /* TeamDetailPage.swift */,
+				9207A0842968786200F71939 /* TeamDetailPage-ViewModel.swift */,
+			);
+			path = TeamDetailPage;
+			sourceTree = "<group>";
+		};
+		92A6A0642968575500866BDA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9221A98C2969961D007442E6 /* HomePage */,
+				9221A98D2969962D007442E6 /* LeaguePage */,
+				9221A98E29699644007442E6 /* TeamDetailPage */,
 			);
 			path = Views;
 			sourceTree = "<group>";

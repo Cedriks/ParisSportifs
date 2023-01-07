@@ -22,7 +22,7 @@ struct LeaguePage: View {
                 Text("Loading")
             }.task {
                 viewModel.updateSelectedleague(league: league)
-                await viewModel.fetchAllLeagueTeams()
+                await viewModel.getAllLeagueTeams()
             }
         case .loaded:
             List(viewModel.searchResults, id: \.idTeam) { team in

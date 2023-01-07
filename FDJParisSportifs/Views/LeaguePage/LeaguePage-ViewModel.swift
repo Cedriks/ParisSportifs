@@ -27,27 +27,30 @@ extension LeaguePage {
                 return teams.filter { $0.strTeam!.contains(searchText) }
             }
         }
-        
-        func fetchAllLeagueTeams() async {
+        // MARK: - Data Recovery
+        func getAllLeagueTeams() async {
+            var teams = [Team]()
             guard let strLeague = league?.strLeague else {
                 loadingState = .failed
-                return
-            }
-            let urlEncoded: String = strLeague.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!
-            let urlString = "https://www.thesportsdb.com/api/v1/json/50130162/search_all_teams.php?l=" + urlEncoded
-            guard let url = URL(string: urlString) else {
-                print("Bad URL: \(urlString)")
+                print("No strLeague")
                 return
             }
             do {
-                let (data, _) = try await URLSession.shared.data(from: url)
-                let items = try JSONDecoder().decode(Result.self, from: data)
-                teams = items.teams!.sorted()
-                teams = self.removeOneOnTwo(teams)
-                loadingState = .loaded
+                teams = try await WebService().fetchAllLeagueTeams(strLeague: strLeague)
             } catch {
+                print(error)
                 loadingState = .failed
             }
+            self.teams = applyStatementConstraints(teams)
+            loadingState = .loaded
+        }
+        
+        // MARK: - Statement Constraints
+        /// - sort anti-alphabetically
+        /// - Show only 1 out of 2 teams
+        
+        func applyStatementConstraints (_ teams: [Team]) -> [Team] {
+            return removeOneOnTwo(teams).sorted()
         }
         
         func removeOneOnTwo(_ teams: [Team]) -> [Team] {

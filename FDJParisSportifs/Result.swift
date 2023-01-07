@@ -94,6 +94,8 @@ struct Team: Codable, Comparable {
     let strYoutube: String?
     let strLocked: String?
     
+    
+    /// sort anti-alphabetically
     static func < (lhs: Team, rhs: Team) -> Bool {
         lhs.strTeam! > rhs.strTeam!
     }

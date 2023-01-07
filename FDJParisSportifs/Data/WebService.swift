@@ -44,4 +44,21 @@ class WebService {
         }
         return leagues
     }
+    
+    func fetchAllLeagueTeams(strLeague: String) async throws -> [Team] {
+       var teams = [Team]()
+        let urlEncoded: String = strLeague.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!
+        let endpoint: String = "search_all_teams.php?l=" + urlEncoded
+    
+        do {
+            let url: URL = try createURLRequest(endpoint)
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let items = try JSONDecoder().decode(Result.self, from: data)
+            teams = items.teams!
+        } catch {
+            print(error)
+            throw WebServiceError.dataRecoveryFailure
+        }
+        return teams
+    }
 }
