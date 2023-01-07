@@ -22,18 +22,9 @@ extension ContentView {
             }
         }
         
-        func fetchAllLeagues() async {
-            let urlString = "https://www.thesportsdb.com/api/v1/json/50130162/all_leagues.php"
-            
-            guard let url = URL(string: urlString) else {
-                print("Bad URL: \(urlString)")
-                return
-            }
-            
+        func getAllLeagues() async {
             do {
-                let (data, _) = try await URLSession.shared.data(from: url)
-                let items = try JSONDecoder().decode(Result.self, from: data)
-                leagues = items.leagues!
+                self.leagues = try await WebService().fetchAllLeagues()
                 loadingState = .loaded
             } catch {
                 print(error)

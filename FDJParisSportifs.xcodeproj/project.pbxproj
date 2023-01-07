@@ -17,6 +17,8 @@
 		9211E2292968527000BDC50F /* FDJParisSportifsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2282968527000BDC50F /* FDJParisSportifsTests.swift */; };
 		9211E2332968527000BDC50F /* FDJParisSportifsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2322968527000BDC50F /* FDJParisSportifsUITests.swift */; };
 		9211E2352968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2342968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift */; };
+		9221A98A29698F1B007442E6 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221A98929698F1B007442E6 /* WebService.swift */; };
+		9221A98B29699237007442E6 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221A98929698F1B007442E6 /* WebService.swift */; };
 		92A6A063296852F400866BDA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A062296852F300866BDA /* Result.swift */; };
 		92A6A0662968577900866BDA /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A0652968577900866BDA /* ContentView-ViewModel.swift */; };
 		92A6A0682968599600866BDA /* LeaguePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A0672968599600866BDA /* LeaguePage.swift */; };
@@ -54,6 +56,7 @@
 		9211E22E2968527000BDC50F /* FDJParisSportifsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FDJParisSportifsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9211E2322968527000BDC50F /* FDJParisSportifsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDJParisSportifsUITests.swift; sourceTree = "<group>"; };
 		9211E2342968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDJParisSportifsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9221A98929698F1B007442E6 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		92A6A062296852F300866BDA /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		92A6A0652968577900866BDA /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 		92A6A0672968599600866BDA /* LeaguePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguePage.swift; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		9211E2152968526E00BDC50F /* FDJParisSportifs */ = {
 			isa = PBXGroup;
 			children = (
+				9221A98729698EF0007442E6 /* Data */,
 				92A6A0642968575500866BDA /* Views */,
 				9211E2162968526E00BDC50F /* FDJParisSportifsApp.swift */,
 				9211E21A2968527000BDC50F /* Assets.xcassets */,
@@ -140,6 +144,14 @@
 				9211E2342968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift */,
 			);
 			path = FDJParisSportifsUITests;
+			sourceTree = "<group>";
+		};
+		9221A98729698EF0007442E6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9221A98929698F1B007442E6 /* WebService.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		92A6A0642968575500866BDA /* Views */ = {
@@ -285,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9221A98A29698F1B007442E6 /* WebService.swift in Sources */,
 				92A6A063296852F400866BDA /* Result.swift in Sources */,
 				9207A0852968786200F71939 /* TeamDetailPage-ViewModel.swift in Sources */,
 				92A6A0662968577900866BDA /* ContentView-ViewModel.swift in Sources */,
@@ -308,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9221A98B29699237007442E6 /* WebService.swift in Sources */,
 				9211E2332968527000BDC50F /* FDJParisSportifsUITests.swift in Sources */,
 				9211E2352968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift in Sources */,
 			);

@@ -19,7 +19,7 @@ struct ContentView: View {
                     ProgressView()
                     Text("Loading")
                 }.task {
-                    await viewModel.fetchAllLeagues()
+                    await viewModel.getAllLeagues()
                 }
             case .loaded:
                 List(viewModel.searchResults, id: \.idLeague) { league in

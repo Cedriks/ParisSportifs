@@ -33,6 +33,7 @@ struct TeamDetailPage: View {
                             image.resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(maxWidth: UIScreen.main.bounds.width)
+                                .padding(.horizontal, 4.0)
                         },
                         placeholder: {
                             ProgressView()
