@@ -28,13 +28,14 @@ struct LeaguePage: View {
             List(viewModel.searchResults, id: \.idTeam) { team in
                 // TODO: Navigation to Detail team page
                 NavigationLink(destination: TeamDetailPage(team: team)) {
-                    Text(team.strTeam!)
+                    Text(team.strTeam)
                         .font(.headline)
                     + Text(": ")
                     + Text(team.strAlternate!)
                         .italic()
                 }
-            }
+                .accessibilityIdentifier("teamNavigationLink")
+            }.accessibilityIdentifier("teamList")
             .searchable(text: $viewModel.searchText)
             .navigationTitle(league.strLeague!)
         case .failed:

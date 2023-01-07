@@ -24,7 +24,7 @@ extension LeaguePage {
             if searchText.isEmpty {
                 return teams
             } else {
-                return teams.filter { $0.strTeam!.contains(searchText) }
+                return teams.filter { $0.strTeam.contains(searchText) }
             }
         }
         

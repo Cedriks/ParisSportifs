@@ -22,6 +22,21 @@
 		92A6A063296852F400866BDA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A062296852F300866BDA /* Result.swift */; };
 		92A6A0662968577900866BDA /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A0652968577900866BDA /* ContentView-ViewModel.swift */; };
 		92A6A0682968599600866BDA /* LeaguePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A0672968599600866BDA /* LeaguePage.swift */; };
+		92CCDA602969AB290073FA16 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A062296852F300866BDA /* Result.swift */; };
+		92CCDA612969AB2A0073FA16 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A062296852F300866BDA /* Result.swift */; };
+		92CCDA622969B4F20073FA16 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2182968526E00BDC50F /* ContentView.swift */; };
+		92CCDA632969B4F30073FA16 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211E2182968526E00BDC50F /* ContentView.swift */; };
+		92CCDA642969B5670073FA16 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A0652968577900866BDA /* ContentView-ViewModel.swift */; };
+		92CCDA652969B5680073FA16 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A0652968577900866BDA /* ContentView-ViewModel.swift */; };
+		92CCDA662969B57B0073FA16 /* LeaguePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A0672968599600866BDA /* LeaguePage.swift */; };
+		92CCDA672969B57C0073FA16 /* LeaguePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A0672968599600866BDA /* LeaguePage.swift */; };
+		92CCDA682969B5970073FA16 /* LeaguePage-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9207A080296868F900F71939 /* LeaguePage-ViewModel.swift */; };
+		92CCDA692969B5980073FA16 /* LeaguePage-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9207A080296868F900F71939 /* LeaguePage-ViewModel.swift */; };
+		92CCDA6A2969B5AC0073FA16 /* TeamDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9207A082296877FB00F71939 /* TeamDetailPage.swift */; };
+		92CCDA6B2969B5AC0073FA16 /* TeamDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9207A082296877FB00F71939 /* TeamDetailPage.swift */; };
+		92CCDA6C2969B5B90073FA16 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221A98929698F1B007442E6 /* WebService.swift */; };
+		92CCDA6D2969B5C80073FA16 /* TeamDetailPage-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9207A0842968786200F71939 /* TeamDetailPage-ViewModel.swift */; };
+		92CCDA6E2969B5C80073FA16 /* TeamDetailPage-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9207A0842968786200F71939 /* TeamDetailPage-ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -337,7 +352,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92CCDA612969AB2A0073FA16 /* Result.swift in Sources */,
+				92CCDA6D2969B5C80073FA16 /* TeamDetailPage-ViewModel.swift in Sources */,
+				92CCDA642969B5670073FA16 /* ContentView-ViewModel.swift in Sources */,
+				92CCDA6C2969B5B90073FA16 /* WebService.swift in Sources */,
+				92CCDA682969B5970073FA16 /* LeaguePage-ViewModel.swift in Sources */,
+				92CCDA6A2969B5AC0073FA16 /* TeamDetailPage.swift in Sources */,
 				9211E2292968527000BDC50F /* FDJParisSportifsTests.swift in Sources */,
+				92CCDA662969B57B0073FA16 /* LeaguePage.swift in Sources */,
+				92CCDA632969B4F30073FA16 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +369,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9221A98B29699237007442E6 /* WebService.swift in Sources */,
+				92CCDA672969B57C0073FA16 /* LeaguePage.swift in Sources */,
+				92CCDA652969B5680073FA16 /* ContentView-ViewModel.swift in Sources */,
+				92CCDA622969B4F20073FA16 /* ContentView.swift in Sources */,
+				92CCDA6B2969B5AC0073FA16 /* TeamDetailPage.swift in Sources */,
+				92CCDA6E2969B5C80073FA16 /* TeamDetailPage-ViewModel.swift in Sources */,
 				9211E2332968527000BDC50F /* FDJParisSportifsUITests.swift in Sources */,
+				92CCDA602969AB290073FA16 /* Result.swift in Sources */,
+				92CCDA692969B5980073FA16 /* LeaguePage-ViewModel.swift in Sources */,
 				9211E2352968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

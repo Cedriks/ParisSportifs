@@ -31,7 +31,7 @@ struct Team: Codable, Comparable {
     let idSoccerXML: String?
     let idAPIfootball: String?
     let intLoved: String?
-    let strTeam: String?
+    let strTeam: String
     let strTeamShort: String?
     let strAlternate: String?
     let intFormedYear: String?
@@ -97,7 +97,7 @@ struct Team: Codable, Comparable {
     
     /// sort anti-alphabetically
     static func < (lhs: Team, rhs: Team) -> Bool {
-        lhs.strTeam! > rhs.strTeam!
+        lhs.strTeam > rhs.strTeam
     }
     
     static var example: Team = Team(idTeam: "133702",

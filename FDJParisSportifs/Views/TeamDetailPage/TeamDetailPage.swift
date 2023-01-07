@@ -48,7 +48,7 @@ struct TeamDetailPage: View {
                         .padding(.all)
                 }
             }
-            .navigationTitle(team.strTeam!)
+            .navigationTitle(team.strTeam)
         case .failed:
             VStack {
                 Text("Please try later")

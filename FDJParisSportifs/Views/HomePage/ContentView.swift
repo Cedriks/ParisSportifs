@@ -29,7 +29,7 @@ struct ContentView: View {
                         + Text(": ")
                         + Text(league.strSport ?? "-")
                             .italic()
-                    }
+                    }.accessibilityIdentifier("leagueNavigationLink")
                 }
                 .searchable(text: $viewModel.searchText)
                 .navigationTitle("Paris Sportifs")
