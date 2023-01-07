@@ -15,7 +15,7 @@ extension LeaguePage {
         @Published private(set) var teams = [Team]()
         
         @Published var searchText = ""
-        
+    
         func updateSelectedleague(league: League){
             self.league = league
         }
@@ -27,10 +27,11 @@ extension LeaguePage {
                 return teams.filter { $0.strTeam!.contains(searchText) }
             }
         }
+        
         // MARK: - Data Recovery
         func getAllLeagueTeams() async {
             var teams = [Team]()
-            guard let strLeague = league?.strLeague else {
+            guard let strLeague = self.league?.strLeague else {
                 loadingState = .failed
                 print("No strLeague")
                 return
@@ -59,7 +60,6 @@ extension LeaguePage {
             for i in 0 ..< teams.count {
                 if (i % 2 == 0 ) {
                     cleanedArr.append(teams[i])
-                    print(i)
                 }
             }
             return cleanedArr

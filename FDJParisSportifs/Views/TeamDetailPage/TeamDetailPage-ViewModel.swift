@@ -16,26 +16,20 @@ extension TeamDetailPage {
             self.team = team
         }
         
-        func fetchTeamInformations() async {
-            guard let strTeam = team?.strTeam else {
+        // MARK: - Data Recovery
+        func getTeamInformations() async {
+            guard let strTeam = self.team?.strTeam else {
                 loadingState = .failed
-                return
-            }
-            let urlEncoded: String = strTeam.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!
-            let urlString = "https://www.thesportsdb.com/api/v1/json/50130162/searchteams.php?t=" + urlEncoded
-            guard let url = URL(string: urlString) else {
-                print("Bad URL: \(urlString)")
+                print("No strTeam")
                 return
             }
             do {
-                let (data, _) = try await URLSession.shared.data(from: url)
-                let items = try JSONDecoder().decode(Result.self, from: data)
-                team = items.teams!.first
-                loadingState = .loaded
+                self.team = try await WebService().fetchTeamInformations(strTeam: strTeam)
             } catch {
                 print(error)
                 loadingState = .failed
             }
+            loadingState = .loaded
         }
     }
 }

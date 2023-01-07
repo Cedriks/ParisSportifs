@@ -22,7 +22,7 @@ struct TeamDetailPage: View {
                 Text("Loading")
             }.task {
                 viewModel.updateSelectedTeam(team: team)
-                await viewModel.fetchTeamInformations()
+                await viewModel.getTeamInformations()
             }
         case .loaded:
             VStack {
