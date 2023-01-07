@@ -13,14 +13,11 @@ class WebService {
         case dataRecoveryFailure
     }
     
-    
     let apiKey : String = "50130162"
     let rootUrl : String = "https://www.thesportsdb.com/api/v1/json/"
     
     func createURLRequest(_ endPoint: String) throws -> URL {
-        
         let urlString = rootUrl + apiKey + "/" + endPoint
-        print(urlString)
         guard let url = URL(string: urlString) else {
             print("Bad URL: \(urlString)")
             throw WebServiceError.invalidURL
@@ -81,7 +78,7 @@ class WebService {
             let url: URL = try createURLRequest(endpoint)
             let (data, _) = try await URLSession.shared.data(from: url)
             let items = try JSONDecoder().decode(Result.self, from: data)
-            team = try items.teams!.first
+            team = items.teams!.first
         } catch {
             print(error)
             throw WebServiceError.dataRecoveryFailure
