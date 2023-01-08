@@ -11,8 +11,12 @@ extension ContentView {
     @MainActor class ViewModel: ObservableObject {
         @Published var loadingState = LoadingState.loading
         @Published private(set) var leagues = [League]()
-        
         @Published var searchText = ""
+        private let allLeaguesNetworker: AllLeaguesNetworking
+        
+        init(allLeaguesNetworker: AllLeaguesNetworking = AllLeaguesNetworker()) {
+            self.allLeaguesNetworker = allLeaguesNetworker
+        }
         
         var searchResults: [League] {
             if searchText.isEmpty {
@@ -24,7 +28,7 @@ extension ContentView {
         
         func getAllLeagues() async {
             do {
-                self.leagues = try await AllLeagues().fetchAllLeagues()
+                self.leagues = try await allLeaguesNetworker.fetchAllLeagues()
                 loadingState = .loaded
             } catch {
                 print(error)

@@ -28,7 +28,7 @@ struct ContentView: View {
                 .searchable(text: $viewModel.searchText)
                 .navigationTitle("Paris Sportifs")
             case .failed:
-                FailedView(reloadButton: true,
+                FailedView(isReloadButtonDisplayable: true,
                            loadingState: $viewModel.loadingState)
             }
         }

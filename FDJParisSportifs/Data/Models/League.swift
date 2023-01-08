@@ -12,9 +12,4 @@ struct League: Codable {
     let strLeague: String?
     let strSport: String?
     let strLeagueAlternate: String?
-    
-    static var example: League = League(idLeague: "12345",
-                                        strLeague: "strLeague",
-                                        strSport: "strSport",
-                                        strLeagueAlternate: "strLeagueAlternate")
 }

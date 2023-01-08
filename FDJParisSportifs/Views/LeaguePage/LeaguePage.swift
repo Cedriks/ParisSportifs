@@ -22,7 +22,7 @@ struct LeaguePage: View {
                 }
         case .loaded:
             List(viewModel.searchResults, id: \.idTeam) { team in
-                NavigationLink(destination: TeamDetailPage(team: team)) {
+                NavigationLink(destination: TeamDetailPage(viewModel: TeamDetailPage.ViewModel(team: team))) {
                     TeamRow(team: team)
                 }
                 .accessibilityIdentifier("teamNavigationLink")
@@ -30,7 +30,7 @@ struct LeaguePage: View {
                 .searchable(text: $viewModel.searchText)
                 .navigationTitle(league.strLeague!)
         case .failed:
-            FailedView(reloadButton: false,
+            FailedView(isReloadButtonDisplayable: false,
                        loadingState: $viewModel.loadingState)
             .task {
                 dismiss()
@@ -48,6 +48,11 @@ struct LeaguePage: View {
 
 struct LeaguePage_Previews: PreviewProvider {
     static var previews: some View {
-        LeaguePage(league: League.example)
+        LeaguePage(league: League(
+            idLeague: "12345",
+            strLeague: "strLeague",
+            strSport: "strSport",
+            strLeagueAlternate: "strLeagueAlternate"
+        ))
     }
 }

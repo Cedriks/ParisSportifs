@@ -23,6 +23,11 @@ struct LeagueRow: View {
 
 struct LeagueRow_Previews: PreviewProvider {
     static var previews: some View {
-        LeagueRow(league: League.example)
+        LeagueRow(league: League(
+            idLeague: "12345",
+            strLeague: "strLeague",
+            strSport: "strSport",
+            strLeagueAlternate: "strLeagueAlternate"
+        ))
     }
 }

@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct FailedView: View {
-    let reloadButton: Bool
-    @Binding var loadingState : LoadingState
-    
+    let isReloadButtonDisplayable: Bool
+    @Binding var loadingState: LoadingState
+
     var body: some View {
         VStack {
             Spacer()
             Text("Please try later")
             Spacer()
-            if reloadButton {
+            if isReloadButtonDisplayable {
                 Button("Reload") {
                     loadingState = .loading
                 }

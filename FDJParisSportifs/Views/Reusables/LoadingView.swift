@@ -8,16 +8,11 @@
 import SwiftUI
 
 struct LoadingView: View {
-//    var actions : ()
-    
     var body: some View {
         VStack {
             ProgressView()
             Text("Loading")
         }
-//        .task {
-//            actions
-//        }
     }
 }
 

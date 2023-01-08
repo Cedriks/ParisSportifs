@@ -9,27 +9,34 @@ import Foundation
 
 extension TeamDetailPage {
     @MainActor class ViewModel: ObservableObject {
-        @Published private(set) var team: Team?
+        @Published private(set) var team: Team
         @Published var loadingState = LoadingState.loading
-
-        func updateSelectedTeam(team: Team) {
+        private let teamInformationNetworker: TeamInformationNetworking
+        
+        init(teamInformationNetworker: TeamInformationNetworking = TeamInformationNetworker(), team: Team) {
+            self.teamInformationNetworker = teamInformationNetworker
             self.team = team
         }
         
-        // MARK: - Data Recovery
+//        func updateSelectedTeam(team: Team) {
+//            self.team = team
+//        }
+        
         func getTeamInformations() async {
-            guard let strTeam = self.team?.strTeam else {
-                loadingState = .failed
-                print("No strTeam")
-                return
-            }
+            let strTeam = self.team.strTeam
+//            guard let strTeam = self.team?.strTeam else {
+//                loadingState = .failed
+//                print("No strTeam")
+//                return
+//            }
             do {
-                self.team = try await TeamInformations().fetchTeamInformations(strTeam: strTeam)
+                self.team = try await teamInformationNetworker.fetchTeamInformation(strTeam: strTeam)
+                loadingState = .loaded
             } catch {
                 print(error)
                 loadingState = .failed
             }
-            loadingState = .loaded
+          
         }
     }
 }
