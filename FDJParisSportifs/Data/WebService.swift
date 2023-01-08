@@ -64,7 +64,7 @@ class WebService {
             let url: URL = try createURLRequest(endpoint, urlEncoded)
             let (data, _) = try await URLSession.shared.data(from: url)
             let items = try JSONDecoder().decode(Result.self, from: data)
-            teams = try items.teams!
+            teams = items.teams!
         } catch {
             print(error)
             throw WebServiceError.dataRecoveryFailure

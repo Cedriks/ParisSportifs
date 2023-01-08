@@ -25,30 +25,54 @@ struct TeamDetailPage: View {
                 await viewModel.getTeamInformations()
             }
         case .loaded:
-            VStack {
-                ScrollView([.vertical]) {
+            ZStack {
+                VStack {
+                    Spacer()
                     AsyncImage(
-                        url: URL(string: team.strTeamBanner!),
+                        url: URL(string: team.strTeamBadge!),
                         content:{ image in
                             image.resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(maxWidth: UIScreen.main.bounds.width)
-                                .padding(.horizontal, 4.0)
+                                .frame(maxWidth: UIScreen.main.bounds.height)
+                            .opacity(0.2)
+                            .padding(.horizontal)
                         },
                         placeholder: {
                             ProgressView()
                         }
                     )
-                    Text(team.strCountry ?? "-")
-                        .font(.title)
-                    Text(team.strLeague ?? "-")
-                        .font(.title2)
-                    Text(team.strDescriptionEN ?? "-")
-                        .multilineTextAlignment(.center)
-                        .padding(.all)
+                    Spacer()
+                        .frame(height: 40)
                 }
+                VStack {
+                    ScrollView([.vertical]) {
+                        if(team.strTeamBanner != nil) {
+                            AsyncImage(
+                                url: URL(string: team.strTeamBanner!),
+                                content:{ image in
+                                    image.resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxWidth: UIScreen.main.bounds.width)
+                                        .cornerRadius(4)
+                                        .padding(.horizontal, 4.0)
+                                },
+                                placeholder: {
+                                    ProgressView()
+                                }
+                            )
+                        }
+                        Text(team.strCountry ?? "-")
+                            .font(.title)
+                        Text(team.strLeague ?? "-")
+                            .font(.title2)
+                        Text(team.strDescriptionEN ?? "-")
+                            .font(.body)
+                            .multilineTextAlignment(.center)
+                            .padding(.all)
+                    }
+                }
+                .navigationTitle(team.strTeam)
             }
-            .navigationTitle(team.strTeam)
         case .failed:
             VStack {
                 Text("Please try later")
