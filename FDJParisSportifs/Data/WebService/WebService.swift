@@ -7,65 +7,71 @@
 
 import Foundation
 
-class WebService {
-    enum WebServiceError: Error {
+final class WebService {
+    private enum WebServiceError: Error {
+        case encodingURL
         case invalidURL
         case dataRecoveryFailure
     }
     
-    enum WebServiceEndPoint: String {
+    private enum WebServiceEndPoint: String {
         case allLeagues = "all_leagues.php"
         case allLeagueTeams = "search_all_teams.php?l="
         case teamInformations = "searchteams.php?t="
     }
     
-    let apiKey : String = "50130162"
-    let rootUrl : String = "https://www.thesportsdb.com/api/v1/json/"
+    private let apiKey: String = "50130162"
+    private let rootUrl: String = "https://www.thesportsdb.com/api/v1/json/"
     
-    func createURLRequest(_ endPoint: WebServiceEndPoint,_ paramEncoded: String? ) throws -> URL {
+    private func makeURLRequest(_ endPoint: WebServiceEndPoint, _ paramEncoded: String?) throws -> URL {
         let urlString = rootUrl + apiKey + "/" + endPoint.rawValue + (paramEncoded ?? "")
         guard let url = URL(string: urlString) else {
             print("Bad URL: \(urlString)")
             throw WebServiceError.invalidURL
         }
-        
         return url
     }
     
     // MARK: - API Calls
-    
-    /// Récupérer toutes les ligues
-    /// - Returns: Tableau de leagues
+
     func fetchAllLeagues() async throws -> [League] {
         var leagues = [League]()
         let endpoint: WebServiceEndPoint = .allLeagues
         
+        guard let url: URL = try? makeURLRequest(endpoint, nil)
+        else { throw WebServiceError.invalidURL }
+        
         do {
-            let url: URL = try createURLRequest(endpoint, nil)
             let (data, _) = try await URLSession.shared.data(from: url)
             let items = try JSONDecoder().decode(Result.self, from: data)
-            leagues = items.leagues!
+            if let itemsleagues = items.leagues {
+                leagues = itemsleagues
+            }
         } catch {
-            print(error)
+            print("Fetching \(url.absoluteString)...")
             throw WebServiceError.dataRecoveryFailure
         }
         return leagues
     }
     
-    /// Récupérer toutes les équipes d'une ligue
-    /// - Parameter strLeague:Nom de la ligue
-    /// - Returns: Tableau d'équipes
     func fetchAllLeagueTeams(strLeague: String) async throws -> [Team] {
-       var teams = [Team]()
-        let urlEncoded: String = strLeague.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!
+        var teams = [Team]()
         let endpoint: WebServiceEndPoint = .allLeagueTeams
-    
+        
+        guard let urlEncoded: String = strLeague.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
+        else { throw WebServiceError.encodingURL }
+   
+        guard let url: URL = try? makeURLRequest(endpoint, urlEncoded)
+        else { throw WebServiceError.invalidURL }
+        
         do {
-            let url: URL = try createURLRequest(endpoint, urlEncoded)
             let (data, _) = try await URLSession.shared.data(from: url)
             let items = try JSONDecoder().decode(Result.self, from: data)
-            teams = items.teams!
+            if let itemsteams = items.teams {
+                teams = itemsteams
+            }
         } catch {
+            print("Fetching \(url.absoluteString)...")
             print(error)
             throw WebServiceError.dataRecoveryFailure
         }
@@ -77,14 +83,23 @@ class WebService {
     /// - Returns: L'équipe et ses informations
     func fetchTeamInformations(strTeam: String) async throws -> Team {
         var team: Team? = nil
-        let urlEncoded: String = strTeam.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!
         let endpoint: WebServiceEndPoint = .teamInformations
         
+        guard let urlEncoded: String = strTeam.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
+        else {
+            throw WebServiceError.encodingURL
+        }
+        guard let url: URL = try? makeURLRequest(endpoint, urlEncoded)
+        else {
+            throw WebServiceError.invalidURL
+        }
+        
         do {
-            let url: URL = try createURLRequest(endpoint, urlEncoded)
             let (data, _) = try await URLSession.shared.data(from: url)
             let items = try JSONDecoder().decode(Result.self, from: data)
-            team = items.teams!.first
+            if let itemsteams = items.teams {
+                team = itemsteams.first
+            }
         } catch {
             print(error)
             throw WebServiceError.dataRecoveryFailure
