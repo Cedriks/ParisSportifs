@@ -28,11 +28,29 @@ struct LeaguePage: View {
             List(viewModel.searchResults, id: \.idTeam) { team in
                 // TODO: Navigation to Detail team page
                 NavigationLink(destination: TeamDetailPage(team: team)) {
-                    Text(team.strTeam)
-                        .font(.headline)
-                    + Text(": ")
-                    + Text(team.strAlternate!)
-                        .italic()
+                    HStack {
+                        if(team.strTeamBadge != nil) {
+                            AsyncImage(
+                                url: URL(string: team.strTeamBadge!),
+                                content:{ image in
+                                    image.resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxWidth: 40)
+                                        .padding(.horizontal, 4.0)
+                                },
+                                placeholder: {
+                                    ProgressView()
+                                        .frame(maxWidth: 48)
+                                }
+                            )
+                        }
+                        VStack(alignment: .leading) {
+                            Text(team.strTeam)
+                                .font(.headline)
+                            Text(team.strAlternate!)
+                                .italic()
+                        }
+                    }
                 }
                 .accessibilityIdentifier("teamNavigationLink")
             }.accessibilityIdentifier("teamList")
