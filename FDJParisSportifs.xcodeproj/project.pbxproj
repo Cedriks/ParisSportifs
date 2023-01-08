@@ -27,6 +27,11 @@
 		9224621A296AF74600A33083 /* LeagueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92246219296AF74600A33083 /* LeagueRow.swift */; };
 		9224621C296B0AF800A33083 /* TeamRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9224621B296B0AF800A33083 /* TeamRow.swift */; };
 		92246220296B133500A33083 /* TeamDetailLoadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9224621F296B133500A33083 /* TeamDetailLoadedView.swift */; };
+		92246222296B157700A33083 /* AllLeagues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92246221296B157700A33083 /* AllLeagues.swift */; };
+		92246224296B159E00A33083 /* AllLeagueTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92246223296B159E00A33083 /* AllLeagueTeams.swift */; };
+		92246226296B15C700A33083 /* TeamInformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92246225296B15C700A33083 /* TeamInformations.swift */; };
+		92246228296B165400A33083 /* WebServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92246227296B165400A33083 /* WebServiceError.swift */; };
+		9224622A296B166900A33083 /* WebServiceEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92246229296B166900A33083 /* WebServiceEndPoint.swift */; };
 		92A6A063296852F400866BDA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A062296852F300866BDA /* Result.swift */; };
 		92A6A0662968577900866BDA /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A0652968577900866BDA /* ContentView-ViewModel.swift */; };
 		92A6A0682968599600866BDA /* LeaguePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6A0672968599600866BDA /* LeaguePage.swift */; };
@@ -88,6 +93,11 @@
 		92246219296AF74600A33083 /* LeagueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueRow.swift; sourceTree = "<group>"; };
 		9224621B296B0AF800A33083 /* TeamRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRow.swift; sourceTree = "<group>"; };
 		9224621F296B133500A33083 /* TeamDetailLoadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailLoadedView.swift; sourceTree = "<group>"; };
+		92246221296B157700A33083 /* AllLeagues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLeagues.swift; sourceTree = "<group>"; };
+		92246223296B159E00A33083 /* AllLeagueTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLeagueTeams.swift; sourceTree = "<group>"; };
+		92246225296B15C700A33083 /* TeamInformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInformations.swift; sourceTree = "<group>"; };
+		92246227296B165400A33083 /* WebServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceError.swift; sourceTree = "<group>"; };
+		92246229296B166900A33083 /* WebServiceEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceEndPoint.swift; sourceTree = "<group>"; };
 		92A6A062296852F300866BDA /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		92A6A0652968577900866BDA /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 		92A6A0672968599600866BDA /* LeaguePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguePage.swift; sourceTree = "<group>"; };
@@ -239,6 +249,11 @@
 			isa = PBXGroup;
 			children = (
 				9221A98929698F1B007442E6 /* WebService.swift */,
+				92246221296B157700A33083 /* AllLeagues.swift */,
+				92246223296B159E00A33083 /* AllLeagueTeams.swift */,
+				92246225296B15C700A33083 /* TeamInformations.swift */,
+				92246227296B165400A33083 /* WebServiceError.swift */,
+				92246229296B166900A33083 /* WebServiceEndPoint.swift */,
 			);
 			path = WebService;
 			sourceTree = "<group>";
@@ -391,13 +406,18 @@
 				9207A0852968786200F71939 /* TeamDetailPage-ViewModel.swift in Sources */,
 				92A6A0662968577900866BDA /* ContentView-ViewModel.swift in Sources */,
 				92246220296B133500A33083 /* TeamDetailLoadedView.swift in Sources */,
+				9224622A296B166900A33083 /* WebServiceEndPoint.swift in Sources */,
 				9207A081296868F900F71939 /* LeaguePage-ViewModel.swift in Sources */,
 				9224621C296B0AF800A33083 /* TeamRow.swift in Sources */,
 				9207A083296877FB00F71939 /* TeamDetailPage.swift in Sources */,
+				92246222296B157700A33083 /* AllLeagues.swift in Sources */,
 				9211E2192968526E00BDC50F /* ContentView.swift in Sources */,
 				92A6A0682968599600866BDA /* LeaguePage.swift in Sources */,
+				92246228296B165400A33083 /* WebServiceError.swift in Sources */,
+				92246226296B15C700A33083 /* TeamInformations.swift in Sources */,
 				92246211296AE87900A33083 /* League.swift in Sources */,
 				92246216296AE94D00A33083 /* LoadingView.swift in Sources */,
+				92246224296B159E00A33083 /* AllLeagueTeams.swift in Sources */,
 				9211E2172968526E00BDC50F /* FDJParisSportifsApp.swift in Sources */,
 				92246218296AEA9600A33083 /* FailedView.swift in Sources */,
 				9224621A296AF74600A33083 /* LeagueRow.swift in Sources */,

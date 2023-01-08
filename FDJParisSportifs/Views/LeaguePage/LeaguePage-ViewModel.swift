@@ -38,7 +38,7 @@ extension LeaguePage {
                 return
             }
             do {
-                teams = try await WebService().fetchAllLeagueTeams(strLeague: strLeague)
+                teams = try await AllLeagueTeams().fetchAllLeagueTeams(strLeague: strLeague)
             } catch {
                 print(error)
                 loadingState = .failed

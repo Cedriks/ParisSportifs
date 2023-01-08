@@ -24,7 +24,7 @@ extension ContentView {
         
         func getAllLeagues() async {
             do {
-                self.leagues = try await WebService().fetchAllLeagues()
+                self.leagues = try await AllLeagues().fetchAllLeagues()
                 loadingState = .loaded
             } catch {
                 print(error)

@@ -24,7 +24,7 @@ extension TeamDetailPage {
                 return
             }
             do {
-                self.team = try await WebService().fetchTeamInformations(strTeam: strTeam)
+                self.team = try await TeamInformations().fetchTeamInformations(strTeam: strTeam)
             } catch {
                 print(error)
                 loadingState = .failed
