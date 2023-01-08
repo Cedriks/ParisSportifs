@@ -30,10 +30,11 @@ extension LeaguePage {
         
         // MARK: - Data Recovery
         func getAllLeagueTeams() async {
+            loadingState = .loaded
             var teams = [Team]()
             guard let strLeague = self.league?.strLeague else {
                 loadingState = .failed
-                print("No strLeague")
+                print("No league selected found")
                 return
             }
             do {
@@ -43,7 +44,6 @@ extension LeaguePage {
                 loadingState = .failed
             }
             self.teams = applyStatementConstraints(teams)
-            loadingState = .loaded
         }
         
         // MARK: - Statement Constraints
@@ -51,7 +51,7 @@ extension LeaguePage {
         /// - Show only 1 out of 2 teams
         
         func applyStatementConstraints (_ teams: [Team]) -> [Team] {
-            return removeOneOnTwo(teams).sorted()
+            removeOneOnTwo(teams).sorted()
         }
         
         func removeOneOnTwo(_ teams: [Team]) -> [Team] {

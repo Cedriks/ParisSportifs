@@ -12,7 +12,7 @@ extension TeamDetailPage {
         @Published private(set) var team: Team?
         @Published var loadingState = LoadingState.loading
 
-        func updateSelectedTeam(team: Team){
+        func updateSelectedTeam(team: Team) {
             self.team = team
         }
         
