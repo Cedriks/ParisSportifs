@@ -35,6 +35,7 @@ final class FDJParisSportifsUITests: XCTestCase {
         
         let leagueButtons = app.buttons["leagueNavigationLink"]
         leagueButtons.firstMatch.tap()
+        closeVisibleScreen(app)
     }
     
     func testShowTeamInformations() throws {
@@ -46,6 +47,9 @@ final class FDJParisSportifsUITests: XCTestCase {
         
         let teamButtons = app.buttons["teamNavigationLink"]
         teamButtons.firstMatch.tap()
+        
+        closeVisibleScreen(app)
+        closeVisibleScreen(app)
     }
     
     func testLaunchPerformance() throws {
@@ -55,5 +59,10 @@ final class FDJParisSportifsUITests: XCTestCase {
                 XCUIApplication().launch()
             }
         }
+    }
+    
+    //MARK: - Tools
+    func closeVisibleScreen(_ app: XCUIApplication) {
+        app.navigationBars.buttons.element(boundBy: 0).tap()
     }
 }
