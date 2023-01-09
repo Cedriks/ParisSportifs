@@ -24,7 +24,7 @@ struct TeamDetailLoadedView: View {
                             .padding(.horizontal)
                     },
                     placeholder: {
-                        ProgressView()
+                       
                     }
                 )
                 Spacer()
@@ -43,7 +43,8 @@ struct TeamDetailLoadedView: View {
                                     .padding(.horizontal, 4.0)
                             },
                             placeholder: {
-                                ProgressView()
+                                Image(systemName: "photo")
+                                    .frame(height: 40)
                             }
                         )
                     }

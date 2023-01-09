@@ -21,7 +21,6 @@ final class AllLeaguesNetworker: AllLeaguesNetworking {
     }
     
     func fetchAllLeagues() async throws -> [League] {
-        throw WebServiceError.invalidURL
         var leagues = [League]()
         let endpoint: WebServiceEndPoint = .allLeagues
         

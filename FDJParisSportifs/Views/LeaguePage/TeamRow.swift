@@ -22,7 +22,7 @@ struct TeamRow: View {
                             .padding(.horizontal, 4.0)
                     },
                     placeholder: {
-                        Image(systemName: "network")
+                        Image(systemName: "photo")
                             .frame(maxWidth: 48)
                     }
                 )
