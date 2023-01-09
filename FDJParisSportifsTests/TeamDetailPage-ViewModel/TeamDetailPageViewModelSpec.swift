@@ -90,5 +90,6 @@ final class TeamDetailPageViewModelSpec: XCTestCase {
     @MainActor func testFectchingTeamInformationToTrue() async {
         await viewModel.getTeamInformations()
         XCTAssertEqual(viewModel.team.idTeam, mockTeamInformation.stubbedTeam.idTeam)
-    }    
+    }
+    // TODO: verifier les cas d'erreur
 }

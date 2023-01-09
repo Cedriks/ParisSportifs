@@ -82,6 +82,9 @@
 		92E34810296C0F0E00D8F49E /* TeamDetailPageViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3480F296C0F0E00D8F49E /* TeamDetailPageViewModelSpec.swift */; };
 		92E34812296C0F3200D8F49E /* MockTeamDetailPageNetworker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E34811296C0F3200D8F49E /* MockTeamDetailPageNetworker.swift */; };
 		92E34817296C20FA00D8F49E /* String+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E34816296C20FA00D8F49E /* String+ext.swift */; };
+		92E34819296C42CF00D8F49E /* String+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E34816296C20FA00D8F49E /* String+ext.swift */; };
+		92E3481A296C433800D8F49E /* String+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E34816296C20FA00D8F49E /* String+ext.swift */; };
+		92E3481C296C718C00D8F49E /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 92E3481B296C718C00D8F49E /* Readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +142,7 @@
 		92E3480F296C0F0E00D8F49E /* TeamDetailPageViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailPageViewModelSpec.swift; sourceTree = "<group>"; };
 		92E34811296C0F3200D8F49E /* MockTeamDetailPageNetworker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTeamDetailPageNetworker.swift; sourceTree = "<group>"; };
 		92E34816296C20FA00D8F49E /* String+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ext.swift"; sourceTree = "<group>"; };
+		92E3481B296C718C00D8F49E /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,7 @@
 		9211E20A2968526E00BDC50F = {
 			isa = PBXGroup;
 			children = (
+				92E3481B296C718C00D8F49E /* Readme.md */,
 				9211E2152968526E00BDC50F /* FDJParisSportifs */,
 				9211E2272968527000BDC50F /* FDJParisSportifsTests */,
 				9211E2312968527000BDC50F /* FDJParisSportifsUITests */,
@@ -451,6 +456,7 @@
 			files = (
 				9211E21F2968527000BDC50F /* Preview Assets.xcassets in Resources */,
 				9211E21B2968527000BDC50F /* Assets.xcassets in Resources */,
+				92E3481C296C718C00D8F49E /* Readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +525,7 @@
 				92E347F7296B2D2500D8F49E /* LoadingView.swift in Sources */,
 				92E3480A296B2D6600D8F49E /* WebServiceEndPoint.swift in Sources */,
 				92E347FD296B2D3800D8F49E /* TeamRow.swift in Sources */,
+				92E34819296C42CF00D8F49E /* String+ext.swift in Sources */,
 				92E34812296C0F3200D8F49E /* MockTeamDetailPageNetworker.swift in Sources */,
 				92CCDA682969B5970073FA16 /* LeaguePage-ViewModel.swift in Sources */,
 				92CCDA6A2969B5AC0073FA16 /* TeamDetailPage.swift in Sources */,
@@ -561,6 +568,7 @@
 				92E34800296B2D4300D8F49E /* TeamDetailLoadedView.swift in Sources */,
 				92E34807296B2D6100D8F49E /* WebServiceError.swift in Sources */,
 				92E347F2296B29F000D8F49E /* League.swift in Sources */,
+				92E3481A296C433800D8F49E /* String+ext.swift in Sources */,
 				9211E2352968527000BDC50F /* FDJParisSportifsUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

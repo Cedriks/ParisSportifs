@@ -15,10 +15,10 @@ extension LeaguePage {
         @Published private(set) var teams = [Team]()
         
         @Published var searchText = ""
-        private let allLeagueTeamsNetworking : AllLeagueTeamsNetworking
+        private let allLeagueTeamsNetworker : AllLeagueTeamsNetworking
         
         init(allLeagueTeamsNetworker: AllLeagueTeamsNetworking = AllLeagueTeamsNetworker(), league: League){
-            self.allLeagueTeamsNetworking = allLeagueTeamsNetworker
+            self.allLeagueTeamsNetworker = allLeagueTeamsNetworker
             self.league = league
         }
         
@@ -40,7 +40,7 @@ extension LeaguePage {
                 return
             }
             do {
-                teams = try await AllLeagueTeamsNetworker().fetchAllLeagueTeams(strLeague: strLeague)
+                teams = try await allLeagueTeamsNetworker.fetchAllLeagueTeams(strLeague: strLeague)
             } catch {
                 print(error)
                 loadingState = .failed
@@ -50,16 +50,16 @@ extension LeaguePage {
         
         // MARK: - Statement Constraints
         
-        func applyStatementConstraints(_ teams: [Team]) -> [Team] {
+        private func applyStatementConstraints(_ teams: [Team]) -> [Team] {
+            return teams
             /// - Sort anti-alphabetically.
-            var finalArray = teams.sorted()
+                .sorted()
+                .enumerated()
             /// - Show only 1 out of 2 teams.
-            finalArray = finalArray.enumerated()
                 .filter { $0.offset %  2  ==  0 }
                 .map { (index, team) in
                     return team
                 }
-            return finalArray
         }
     }
 }

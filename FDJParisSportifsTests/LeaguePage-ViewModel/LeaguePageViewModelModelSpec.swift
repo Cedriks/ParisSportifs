@@ -83,21 +83,20 @@ final class LeaguePageViewModelModelSpec: XCTestCase {
             strYoutube: "www.youtube.com/user/ACAiacciuofficiel",
             strLocked: "unlocked"
         )]
-        mockAllLeagueTeams.stubbedLeague = League(
+        let league = League(
             idLeague: "4334",
             strLeague: "French Ligue 1",
             strSport: "Soccer",
             strLeagueAlternate: "AC Ajaccio, Athletic Club Aiacciu")
         viewModel = LeaguePage.ViewModel(allLeagueTeamsNetworker: mockAllLeagueTeams,
-                                         league: mockAllLeagueTeams.stubbedLeague)
+                                         league: league)
     }
     
     @MainActor func testFectchingAllLeagueTeamsToTrue() async {
         XCTAssertEqual(mockAllLeagueTeams.invokedFetchAllLeagueTeamsCount, 0)
         await viewModel.getAllLeagueTeams()
-        print(viewModel.teams.count)
         XCTAssertNotEqual(viewModel.teams.count, 0)
-//        XCTAssertEqual(mockAllLeagueTeams.invokedFetchAllLeagueTeamsCount, 1)
+        XCTAssertEqual(mockAllLeagueTeams.invokedFetchAllLeagueTeamsCount, 1)
         XCTAssertEqual("133702", mockAllLeagueTeams.stubbedTeam.first!.idTeam)
     }
 }

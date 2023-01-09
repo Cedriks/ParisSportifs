@@ -30,4 +30,8 @@ final class ContentViewModelSpec: XCTestCase {
         XCTAssertEqual(mockAllLeagues.invokedFetchAllLeaguesCount, 1)
         XCTAssertEqual(viewModel.leagues.first!.idLeague, mockAllLeagues.stubbedLeague.first!.idLeague)
     }
+    
+    // TODO: verifier les cas d'erreur
+    
+    
 }
