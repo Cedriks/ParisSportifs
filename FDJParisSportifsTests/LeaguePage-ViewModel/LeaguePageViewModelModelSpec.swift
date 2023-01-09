@@ -1,46 +1,21 @@
 //
-//  TeamDetailPage.swift
-//  FDJParisSportifs
+//  LeaguePageViewModelModelSpec.swift
+//  FDJParisSportifsTests
 //
-//  Created by Cedrik on 06/01/2023.
+//  Created by Cedrik on 08/01/2023.
 //
 
-import SwiftUI
+import XCTest
+@testable import FDJParisSportifs
 
-struct TeamDetailPage: View {
-    @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel: ViewModel
+final class LeaguePageViewModelModelSpec: XCTestCase {
     
-    //MARK: - View
-    var body: some View {
-        switch viewModel.loadingState {
-        case .loading:
-            LoadingView()
-                .task {
-                    loadingActions()
-                }
-        case .loaded:
-            TeamDetailLoadedView(team: viewModel.team)
-        case .failed:
-            FailedView(isReloadButtonDisplayable: false,
-                       loadingState: $viewModel.loadingState)
-            .task {
-                dismiss()
-            }
-        }
-    }
+    var viewModel: LeaguePage.ViewModel!
+    var mockAllLeagueTeams: MockAllLeagueTeamsNetworker!
     
-    //MARK: - Methods
-    func loadingActions() {
-        Task {
-            await viewModel.getTeamInformations()
-        }
-    }
-}
-
-struct TeamDetailPage_Previews: PreviewProvider {
-    static var previews: some View {
-        TeamDetailPage(viewModel: TeamDetailPage.ViewModel(team: Team(
+    @MainActor override func setUp() {
+        mockAllLeagueTeams = MockAllLeagueTeamsNetworker()
+        mockAllLeagueTeams.stubbedTeam = [Team(
             idTeam: "133702",
             idSoccerXML: "117",
             idAPIfootball: "98",
@@ -107,6 +82,22 @@ struct TeamDetailPage_Previews: PreviewProvider {
             strTeamBanner: "https://www.thesportsdb.com/images/media/team/banner/upwrpx1420758932.jpg",
             strYoutube: "www.youtube.com/user/ACAiacciuofficiel",
             strLocked: "unlocked"
-        )))
+        )]
+        mockAllLeagueTeams.stubbedLeague = League(
+            idLeague: "4334",
+            strLeague: "French Ligue 1",
+            strSport: "Soccer",
+            strLeagueAlternate: "AC Ajaccio, Athletic Club Aiacciu")
+        viewModel = LeaguePage.ViewModel(allLeagueTeamsNetworker: mockAllLeagueTeams,
+                                         league: mockAllLeagueTeams.stubbedLeague)
+    }
+    
+    @MainActor func testFectchingAllLeagueTeamsToTrue() async {
+        XCTAssertEqual(mockAllLeagueTeams.invokedFetchAllLeagueTeamsCount, 0)
+        await viewModel.getAllLeagueTeams()
+        print(viewModel.teams.count)
+        XCTAssertNotEqual(viewModel.teams.count, 0)
+//        XCTAssertEqual(mockAllLeagueTeams.invokedFetchAllLeagueTeamsCount, 1)
+        XCTAssertEqual("133702", mockAllLeagueTeams.stubbedTeam.first!.idTeam)
     }
 }

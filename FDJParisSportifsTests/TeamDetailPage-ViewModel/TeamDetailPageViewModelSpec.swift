@@ -1,46 +1,20 @@
 //
-//  TeamDetailPage.swift
-//  FDJParisSportifs
+//  TeamDetailPageViewModelSpec.swift
+//  FDJParisSportifsTests
 //
-//  Created by Cedrik on 06/01/2023.
+//  Created by Cedrik on 09/01/2023.
 //
 
-import SwiftUI
+import XCTest
 
-struct TeamDetailPage: View {
-    @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel: ViewModel
+final class TeamDetailPageViewModelSpec: XCTestCase {
     
-    //MARK: - View
-    var body: some View {
-        switch viewModel.loadingState {
-        case .loading:
-            LoadingView()
-                .task {
-                    loadingActions()
-                }
-        case .loaded:
-            TeamDetailLoadedView(team: viewModel.team)
-        case .failed:
-            FailedView(isReloadButtonDisplayable: false,
-                       loadingState: $viewModel.loadingState)
-            .task {
-                dismiss()
-            }
-        }
-    }
+    var viewModel: TeamDetailPage.ViewModel!
+    var mockTeamInformation: MockTeamInformationNetworker!
     
-    //MARK: - Methods
-    func loadingActions() {
-        Task {
-            await viewModel.getTeamInformations()
-        }
-    }
-}
-
-struct TeamDetailPage_Previews: PreviewProvider {
-    static var previews: some View {
-        TeamDetailPage(viewModel: TeamDetailPage.ViewModel(team: Team(
+    @MainActor override func setUp() {
+        mockTeamInformation = MockTeamInformationNetworker()
+        mockTeamInformation.stubbedTeam = Team(
             idTeam: "133702",
             idSoccerXML: "117",
             idAPIfootball: "98",
@@ -107,6 +81,14 @@ struct TeamDetailPage_Previews: PreviewProvider {
             strTeamBanner: "https://www.thesportsdb.com/images/media/team/banner/upwrpx1420758932.jpg",
             strYoutube: "www.youtube.com/user/ACAiacciuofficiel",
             strLocked: "unlocked"
-        )))
+        )
+        
+        viewModel = TeamDetailPage.ViewModel(teamInformationNetworker: mockTeamInformation,
+                                             team: mockTeamInformation.stubbedTeam)
     }
+    
+    @MainActor func testFectchingTeamInformationToTrue() async {
+        await viewModel.getTeamInformations()
+        XCTAssertEqual(viewModel.team.idTeam, mockTeamInformation.stubbedTeam.idTeam)
+    }    
 }

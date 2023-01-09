@@ -10,13 +10,15 @@ import SwiftUI
 
 extension LeaguePage {
     @MainActor class ViewModel: ObservableObject {
-        @Published private(set) var league: League? = nil
+        @Published private(set) var league: League
         @Published var loadingState = LoadingState.loading
         @Published private(set) var teams = [Team]()
         
         @Published var searchText = ""
-    
-        func updateSelectedleague(league: League){
+        private let allLeagueTeamsNetworking : AllLeagueTeamsNetworking
+        
+        init(allLeagueTeamsNetworker: AllLeagueTeamsNetworking = AllLeagueTeamsNetworker(), league: League){
+            self.allLeagueTeamsNetworking = allLeagueTeamsNetworker
             self.league = league
         }
         
@@ -32,7 +34,7 @@ extension LeaguePage {
         func getAllLeagueTeams() async {
             loadingState = .loaded
             var teams = [Team]()
-            guard let strLeague = self.league?.strLeague else {
+            guard let strLeague = self.league.strLeague else {
                 loadingState = .failed
                 print("No league selected found")
                 return
@@ -47,22 +49,17 @@ extension LeaguePage {
         }
         
         // MARK: - Statement Constraints
-        /// - sort anti-alphabetically
-        /// - Show only 1 out of 2 teams
         
-        func applyStatementConstraints (_ teams: [Team]) -> [Team] {
-            removeOneOnTwo(teams).sorted()
-        }
-        
-        func removeOneOnTwo(_ teams: [Team]) -> [Team] {
-            var cleanedArr = [Team]()
-            
-            for i in 0 ..< teams.count {
-                if (i % 2 == 0 ) {
-                    cleanedArr.append(teams[i])
+        func applyStatementConstraints(_ teams: [Team]) -> [Team] {
+            /// - Sort anti-alphabetically.
+            var finalArray = teams.sorted()
+            /// - Show only 1 out of 2 teams.
+            finalArray = finalArray.enumerated()
+                .filter { $0.offset %  2  ==  0 }
+                .map { (index, team) in
+                    return team
                 }
-            }
-            return cleanedArr
+            return finalArray
         }
     }
 }

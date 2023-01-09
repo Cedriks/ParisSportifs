@@ -24,12 +24,11 @@ final class AllLeagueTeamsNetworker: AllLeagueTeamsNetworking {
         var teams = [Team]()
         let endpoint: WebServiceEndPoint = .allLeagueTeams
         
-        //TODO: extraire
-        guard let urlEncoded: String = strLeague.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
-        else { throw WebServiceError.encodingURL }
+        let urlParamEncoded = try strLeague.encodeURLparam()
         
-        guard let url: URL = try? webService.makeURL(endpoint, urlEncoded)
-        else { throw WebServiceError.invalidURL }
+        guard let url: URL = try? webService.makeURL(endpoint, urlParamEncoded) else {
+            throw WebServiceError.invalidURL
+        }
         
         do {
             let (data, _) = try await urlSession.data(from: url)

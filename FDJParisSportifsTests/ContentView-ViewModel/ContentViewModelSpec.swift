@@ -11,11 +11,10 @@ import XCTest
 final class ContentViewModelSpec: XCTestCase {
     
     var viewModel: ContentView.ViewModel!
-    var mockAllLeagues: MockAllLeagues!
+    var mockAllLeagues: MockAllLeaguesNetworker!
     
     @MainActor override func setUp() {
-        mockAllLeagues = MockAllLeagues()
-        //TODO:
+        mockAllLeagues = MockAllLeaguesNetworker()
         mockAllLeagues.stubbedLeague = [League(
             idLeague: "12345",
             strLeague: "strLeague",
@@ -24,8 +23,6 @@ final class ContentViewModelSpec: XCTestCase {
         )]
         viewModel = ContentView.ViewModel(allLeaguesNetworker: mockAllLeagues)
     }
-    
-    //TODO:
     
     @MainActor func testFectchingAllLeaguesToTrue() async {
         XCTAssertEqual(mockAllLeagues.invokedFetchAllLeaguesCount, 0)

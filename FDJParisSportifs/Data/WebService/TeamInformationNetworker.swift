@@ -24,11 +24,9 @@ final class TeamInformationNetworker: TeamInformationNetworking {
         var team: Team?
         let endpoint: WebServiceEndPoint = .teamInformations
         
-        //TODO: extraire
-        guard let urlEncoded: String = strTeam.addingPercentEncoding(withAllowedCharacters: .alphanumerics) else {
-            throw WebServiceError.encodingURL
-        }
-        guard let url: URL = try? webService.makeURL(endpoint, urlEncoded) else {
+        let urlParamEncoded = try strTeam.encodeURLparam()
+        
+        guard let url: URL = try? webService.makeURL(endpoint, urlParamEncoded) else {
             throw WebServiceError.invalidURL
         }
         

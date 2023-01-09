@@ -8,7 +8,7 @@
 import Foundation
 @testable import FDJParisSportifs
 
-final class MockAllLeagues: AllLeaguesNetworking {
+final class MockAllLeaguesNetworker: AllLeaguesNetworking {
     
     var invokedFetchAllLeaguesCount = 0
     var stubbedLeague: [League]!

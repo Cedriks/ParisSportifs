@@ -18,17 +18,8 @@ extension TeamDetailPage {
             self.team = team
         }
         
-//        func updateSelectedTeam(team: Team) {
-//            self.team = team
-//        }
-        
         func getTeamInformations() async {
             let strTeam = self.team.strTeam
-//            guard let strTeam = self.team?.strTeam else {
-//                loadingState = .failed
-//                print("No strTeam")
-//                return
-//            }
             do {
                 self.team = try await teamInformationNetworker.fetchTeamInformation(strTeam: strTeam)
                 loadingState = .loaded

@@ -21,7 +21,9 @@ struct ContentView: View {
                     }
             case .loaded:
                 List(viewModel.searchResults, id: \.idLeague) { league in
-                    NavigationLink(destination: LeaguePage(league: league)) {
+                    NavigationLink(
+                        destination: LeaguePage(viewModel: LeaguePage.ViewModel(league: league))
+                    ) {
                         LeagueRow(league: league)
                     }.accessibilityIdentifier("leagueNavigationLink")
                 }

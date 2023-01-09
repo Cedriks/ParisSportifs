@@ -9,9 +9,8 @@ import SwiftUI
 
 struct LeaguePage: View {
     @Environment(\.dismiss) var dismiss
-    @StateObject private var viewModel = ViewModel()
-    var league: League
-    
+    @StateObject var viewModel: ViewModel
+
     // MARK: - View
     var body: some View {
         switch viewModel.loadingState {
@@ -22,13 +21,15 @@ struct LeaguePage: View {
                 }
         case .loaded:
             List(viewModel.searchResults, id: \.idTeam) { team in
-                NavigationLink(destination: TeamDetailPage(viewModel: TeamDetailPage.ViewModel(team: team))) {
+                NavigationLink(
+                    destination: TeamDetailPage(viewModel: TeamDetailPage.ViewModel(team: team))
+                ) {
                     TeamRow(team: team)
                 }
                 .accessibilityIdentifier("teamNavigationLink")
             }.accessibilityIdentifier("teamList")
                 .searchable(text: $viewModel.searchText)
-                .navigationTitle(league.strLeague!)
+                .navigationTitle(viewModel.league.strLeague!)
         case .failed:
             FailedView(isReloadButtonDisplayable: false,
                        loadingState: $viewModel.loadingState)
@@ -40,7 +41,6 @@ struct LeaguePage: View {
     // MARK: - Methods
     func loadingActions() {
         Task {
-            viewModel.updateSelectedleague(league: league)
             await viewModel.getAllLeagueTeams()
         }
     }
@@ -48,11 +48,11 @@ struct LeaguePage: View {
 
 struct LeaguePage_Previews: PreviewProvider {
     static var previews: some View {
-        LeaguePage(league: League(
+        LeaguePage(viewModel: LeaguePage.ViewModel(league: League(
             idLeague: "12345",
             strLeague: "strLeague",
             strSport: "strSport",
             strLeagueAlternate: "strLeagueAlternate"
-        ))
+        )))
     }
 }
